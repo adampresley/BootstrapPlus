@@ -9,6 +9,10 @@ BootstrapPlus = {};
  * 	Adam Presley
  */
 BootstrapPlus.Modal = function(config) {
+	this.getId = function() {
+		return __config.id;
+	};
+
 	this.close = function() {
 		__$modalDiv.modal("hide");
 	};
