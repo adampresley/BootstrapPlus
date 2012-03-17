@@ -1,3 +1,29 @@
+/*
+ * BootstrapPlus
+ * Copyright 2012 Adam Presley. All rights reserved.
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ * 
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ * 
+ * THIS SOFTWARE IS PROVIDED BY Adam Presley "AS IS" AND ANY EXPRESS OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+ * EVENT SHALL Adam Presley OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+ * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
 BootstrapPlus = {};
 
 /**
@@ -38,7 +64,7 @@ BootstrapPlus.Modal = function(config) {
 				cls;
 
 			__$modalDiv = $("<div />").attr({
-				class: "modal hide fade",
+				"class": "modal hide" + ((__config.animate) ? " fade" : ""),
 				id: __config.id
 			});
 
@@ -46,29 +72,29 @@ BootstrapPlus.Modal = function(config) {
 			 * Header
 			 */
 			$closeAnchor = $("<a />").attr({
-				class: "close",
+				"class": "close",
 				"data-dismiss": "modal"
 			}).html("x");
 
 			$header = $("<h3 />").html(__config.header);
 
-			$headerDiv = $("<div />").attr({ class: "modal-header" });
+			$headerDiv = $("<div />").attr({ "class": "modal-header" });
 			$headerDiv.append($closeAnchor);
 			$headerDiv.append($header);
 
 			/*
 			 * Body
 			 */
-			$body = $("<div />").attr({ class: "modal-body" }).html(__config.body);
+			$body = $("<div />").attr({ "class": "modal-body" }).html(__config.body);
 
 			/*
 			 * Footer
 			 */
-			$footer = $("<div />").attr({ class: "modal-footer" });
+			$footer = $("<div />").attr({ "class": "modal-footer" });
 
 			for (item in __config.buttons) {
 				cls = "btn" + ((__config.buttons[item].type && __config.buttons[item].type === "primary") ? " btn-primary" : "");
-				$("<a />").attr({ href: "#", class: cls }).html(item).on("click", __config.buttons[item].handler).appendTo($footer);
+				$("<a />").attr({ href: "#", "class": cls }).html(item).on("click", __config.buttons[item].handler).appendTo($footer);
 			}
 
 			/*
@@ -103,6 +129,7 @@ BootstrapPlus.Modal = function(config) {
 			keyboard: true,
 			backdrop: true,
 			show: true,
+			animate: true,
 
 			events: {}
 		}, config),
