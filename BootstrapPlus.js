@@ -79,6 +79,7 @@ BootstrapPlus.Modal = function(config) {
 			$header = $("<h3 />").html(__config.header);
 
 			$headerDiv = $("<div />").attr({ "class": "modal-header" });
+			if (__config.headerStyle.length > 0) $headerDiv.attr({ "style": __config.headerStyle });
 			$headerDiv.append($closeAnchor);
 			$headerDiv.append($header);
 
@@ -86,7 +87,8 @@ BootstrapPlus.Modal = function(config) {
 			 * Body
 			 */
 			$body = $("<div />").attr({ "class": "modal-body" }).html(__config.body);
-
+			if (__config.bodyStyle.length > 0) $body.attr({ "style": __config.bodyStyle });
+			
 			/*
 			 * Footer
 			 */
@@ -121,7 +123,9 @@ BootstrapPlus.Modal = function(config) {
 		__config = $.extend({
 			id: "bsp-modal-" + (new Date().getTime()),
 			header: "Header",
+			headerStyle: "",
 			body: "",
+			bodyStyle: "",
 			buttons: {
 				"Close": { type: "primary", handler: function(target) { __this.close(); } }
 			},
