@@ -108,7 +108,8 @@ BootstrapPlus.Modal = function(config) {
 
 			$(document).append(__$modalDiv);
 			__$modalDiv.modal({ keyboard: __config.keyboard, backdrop: __config.backdrop, show: __config.show });
-
+			__$modalDiv.on("hidden", __destroy);
+			
 			__attachEvents();
 		},
 
@@ -116,6 +117,11 @@ BootstrapPlus.Modal = function(config) {
 			for (var e in __config.events) {
 				__$modalDiv.on(e, __config.events[e]);
 			}
+		},
+
+		__destroy = function() {
+			console.log("we are in destroy");
+			__$modalDiv.remove();
 		},
 
 
