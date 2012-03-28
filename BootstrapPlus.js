@@ -115,12 +115,19 @@ BootstrapPlus.Modal = function(config) {
 
 		__attachEvents = function() {
 			for (var e in __config.events) {
-				__$modalDiv.on(e, __config.events[e]);
+				if (e === "hidden") {
+					__$modalDiv.on(e, function() {
+						__destroy();
+						__config.events[e]();
+					});
+				}
+				else {
+					__$modalDiv.on(e, __config.events[e]);
+				}
 			}
 		},
 
 		__destroy = function() {
-			console.log("we are in destroy");
 			__$modalDiv.remove();
 		},
 
