@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modal - Custom Buttons // BootstrapPlus</title>
+		
+		<link href="../../resources/css/bootstrap.css" rel="stylesheet" />
+		<style>
+			body { padding-top: 60px; }
+		</style>
+		<link href="../../resources/css/bootstrap-responsive.css" rel="stylesheet" />
+		<link href="../../resources/css/prettify.css" rel="stylesheet" />
+
+		<!--[if lt IE 9]>
+		<script src="../../resources/html5.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">BootstrapPlus</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<h1>Modal - Custom Buttons</h1>
+		<p>
+			The Hello World demo shows the most basic use of BootstrapPlus.Modal. It has a basic
+			header, body, and Close button. Now let's see how to make custom buttons. 
+		</p>
+		<p>
+			The code is fairly simple. BootstrapPlus.Modal expects a key named <strong>buttons</strong>
+			in the configuration object that contains an object whose keys will be the names of the 
+			buttons to place on the dialog. Each button will have a <em>handler</em> method, and an optional
+			<em>type</em>. <em>type</em> is where you can tell BootstrapPlus.Modal if the button is a primary
+			button or not. Here's a sample:
+		</p>
+
+		<code class="prettyprint">
+			var modal = new BootstrapPlus.Modal({<br />
+				&nbsp;&nbsp;header: "Message For You",<br />
+				&nbsp;&nbsp;body: "&lt;p&gt;Below are custom buttons. They do stuff!&lt;/p&gt;",<br />
+				&nbsp;&nbsp;buttons: {<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;"What's My ID?": { handler: function() { alert(modal.getId()); }},<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;"Say Hi": { handler: function() { alert("Hello."); }},<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;"Close": { type: "primary", handler: function() { modal.close(); }}<br />
+				&nbsp;&nbsp;}<br />
+			});
+		</code>
+		<br /><br />
+
+		<button id="btnClickMe" class="btn btn-primary">Show me the dialog!</button>
+	</div> <!-- /container -->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="../../resources/js/bootstrap.js"></script>
+	<script src="../../resources/js/prettify.js"></script>
+	<script src="../../../BootstrapPlus.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			prettyPrint();
+
+			$("#btnClickMe").click(function() {
+				var modal = new BootstrapPlus.Modal({
+					header: "Message For You",
+					body: "<p>Below are custom buttons. They do stuff!</p>",
+					buttons: {
+						"What's My ID?": { handler: function() { alert(modal.getId()); }},
+						"Say Hi": { handler: function() { alert("Hello."); }},
+						"Close": { type: "primary", handler: function() { modal.close(); }}
+					}
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>

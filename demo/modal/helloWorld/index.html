@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modal - Hello World // BootstrapPlus</title>
+		
+		<link href="../../resources/css/bootstrap.css" rel="stylesheet" />
+		<style>
+			body { padding-top: 60px; }
+		</style>
+		<link href="../../resources/css/bootstrap-responsive.css" rel="stylesheet" />
+
+		<!--[if lt IE 9]>
+		<script src="../../resources/html5.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">BootstrapPlus</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<h1>Modal - Hello World</h1>
+		<p>
+			This is a simple example of a basic use of the Modal object in BootstrapPlus. Click
+			on the button below to show a modal with this most exciting of messages.
+		</p>
+
+		<button id="btnClickMe" class="btn btn-primary">Click me now!</button>
+	</div> <!-- /container -->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="../../resources/js/bootstrap.js"></script>
+	<script src="../../../BootstrapPlus.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#btnClickMe").click(function() {
+				new BootstrapPlus.Modal({
+					header: "Message For You",
+					body: "<p>Hello world!</p>"
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>

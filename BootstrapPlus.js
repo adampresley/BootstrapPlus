@@ -51,6 +51,7 @@ BootstrapPlus.Modal = function(config) {
 		__$modalDiv.modal("toggle");
 	};
 
+
 	var
 		__init = function() {
 			var
