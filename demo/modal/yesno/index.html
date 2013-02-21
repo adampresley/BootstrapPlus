@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Modal - YesNo // BootstrapPlus</title>
+		
+		<link href="../../resources/css/bootstrap.css" rel="stylesheet" />
+		<style>
+			body { padding-top: 60px; }
+		</style>
+		<link href="../../resources/css/bootstrap-responsive.css" rel="stylesheet" />
+		<link href="../../resources/css/prettify.css" rel="stylesheet" />
+
+		<!--[if lt IE 9]>
+		<script src="../../resources/html5.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="#">BootstrapPlus</a>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<h1>Modal - YesNo</h1>
+		<p>
+			The YesNo demo shows how to use a specialized version of the modal dialog
+			that shows a header, body, Yes and No buttons. With this version you can
+			also provide a single handler function for when either button is clicked
+			and the button clicked will be passed to it in the form of "yes" or "no".
+		</p>
+
+		<code class="prettyprint">
+			new BootstrapPlus.Modal.YesNo({<br />
+				&nbsp;&nbsp;header: "Confirmation",<br />
+				&nbsp;&nbsp;body: "&lt;p&gt;Are you sure?&lt;/p&gt;",<br />
+				&nbsp;&nbsp;handler: function(button) {<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;if (button === "yes") {<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("YES!");<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;} else {<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;alert("NO!");<br />
+					&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+				&nbsp;&nbsp;}<br />
+			});
+		</code>
+		<br /><br />
+
+		<button id="btnClickMe" class="btn btn-primary">Show me the dialog!</button>
+	</div> <!-- /container -->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script src="../../resources/js/bootstrap.js"></script>
+	<script src="../../resources/js/prettify.js"></script>
+	<script src="../../../BootstrapPlus.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			prettyPrint();
+
+			$("#btnClickMe").click(function() {
+				new BootstrapPlus.Modal.YesNo({
+					header: "Confirmation",
+					body: "<p>Are you sure?</p>",
+					handler: function(button) {
+						if (button === "yes") {
+							alert("YES!");
+						} else {
+							alert("NO!");
+						}
+					}
+				});
+			});
+		});
+	</script>
+
+</body>
+</html>
