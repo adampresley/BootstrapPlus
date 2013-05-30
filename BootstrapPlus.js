@@ -188,3 +188,27 @@ BootstrapPlus.Modal.YesNo = function(config) {
 
 	this.modal = new BootstrapPlus.Modal(__config);
 };
+
+BootstrapPlus.Modal.OK = function(config) {
+	var
+		__this = this,
+		__config = $.extend({
+			header: config.header || "Confirmation",
+			body: config.body || "OK",
+			buttons: {
+				"OK": { 
+					type: "primary", 
+					handler: function(target) {
+						if (config.handler) {
+							config.handler.call(__this, "ok", target);
+						}
+
+						__this.modal.close();
+					}
+				}
+			},
+			show: config.show || true
+		}, config);
+
+	this.modal = new BootstrapPlus.Modal(__config);
+};
