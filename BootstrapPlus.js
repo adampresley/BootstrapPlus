@@ -99,7 +99,7 @@ BootstrapPlus.Modal = function(config) {
 
 			for (item in __config.buttons) {
 				cls = "btn" + ((__config.buttons[item].type && __config.buttons[item].type === "primary") ? " btn-primary" : "");
-				$("<a />").attr({ href: "#", "class": cls }).html(item).on("click", __config.buttons[item].handler).appendTo($footer);
+				$("<button />").attr({ type: "button", href: "#", "class": cls, id: __generateId("item"), name: __generateId("item") }).html(item).on("click", __config.buttons[item].handler).appendTo($footer);
 			}
 
 			/*
@@ -134,10 +134,13 @@ BootstrapPlus.Modal = function(config) {
 			__$modalDiv.remove();
 		},
 
+		__generateId = function(prefix) {
+			return prefix + (new Date().getTime());
+		},
 
 		__this = this,
 		__config = $.extend({
-			id: "bsp-modal-" + (new Date().getTime()),
+			id: __generateId("bsp-modal-"),
 			header: "Header",
 			headerStyle: "",
 			body: "",
