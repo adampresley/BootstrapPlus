@@ -24,7 +24,10 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-BootstrapPlus = {};
+BootstrapPlus = {
+	dialogInformationImage: "images/dialog-information.png",
+	dialogErrorImage: "images/dialog-error.png"
+};
 
 /**
  * Class: BootstrapPlus.Modal
@@ -210,5 +213,55 @@ BootstrapPlus.Modal.OK = function(config) {
 			show: config.show || true
 		}, config);
 
+	this.modal = new BootstrapPlus.Modal(__config);
+};
+
+BootstrapPlus.Modal.OK = function(config) {
+	var
+		__this = this,
+		__config = $.extend({
+			header: config.header || "Confirmation",
+			body: config.body || "OK",
+			buttons: {
+				"OK": { 
+					type: "primary", 
+					handler: function(target) {
+						if (config.handler) {
+							config.handler.call(__this, "ok", target);
+						}
+
+						__this.modal.close();
+					}
+				}
+			},
+			show: config.show || true
+		}, config);
+
+	__config.body = "<img src=\"" + BootstrapPlus.dialogInformationImage + "\" style=\"float: left; margin-right: 10px\" />" + __config.body;
+	this.modal = new BootstrapPlus.Modal(__config);
+};
+
+BootstrapPlus.Modal.Error = function(config) {
+	var
+		__this = this,
+		__config = $.extend({
+			header: config.header || "Error",
+			body: config.body || "Error",
+			buttons: {
+				"OK": { 
+					type: "primary", 
+					handler: function(target) {
+						if (config.handler) {
+							config.handler.call(__this, "ok", target);
+						}
+
+						__this.modal.close();
+					}
+				}
+			},
+			show: config.show || true
+		}, config);
+
+	__config.body = "<img src=\"" + BootstrapPlus.dialogErrorImage + "\" style=\"float: left; margin-right: 10px\" />" + __config.body;
 	this.modal = new BootstrapPlus.Modal(__config);
 };
