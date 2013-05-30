@@ -172,7 +172,11 @@ BootstrapPlus.Modal.YesNo = function(config) {
 				"Yes": { 
 					handler: function(target) { 
 						if (config.handler) {
-							config.handler.call(__this, "yes", target);
+							if (config.hasOwnProperty("scope")) {
+								config.handler.call(config.scope, "yes", target);
+							} else {
+								config.handler("yes", target);
+							}
 						}
 
 						__this.modal.close(); 
@@ -182,7 +186,11 @@ BootstrapPlus.Modal.YesNo = function(config) {
 					type: "primary", 
 					handler: function(target) {
 						if (config.handler) {
-							config.handler.call(__this, "no", target);
+							if (config.hasOwnProperty("scope")) {
+								config.handler.call(config.scope, "no", target);
+							} else {
+								config.handler("no", target);
+							}
 						}
 
 						__this.modal.close();
@@ -206,7 +214,11 @@ BootstrapPlus.Modal.OK = function(config) {
 					type: "primary", 
 					handler: function(target) {
 						if (config.handler) {
-							config.handler.call(__this, "ok", target);
+							if (config.hasOwnProperty("scope")) {
+								config.handler.call(config.scope, "ok", target);
+							} else {
+								config.handler("ok", target);
+							}
 						}
 
 						__this.modal.close();
@@ -230,7 +242,11 @@ BootstrapPlus.Modal.OK = function(config) {
 					type: "primary", 
 					handler: function(target) {
 						if (config.handler) {
-							config.handler.call(__this, "ok", target);
+							if (config.hasOwnProperty("scope")) {
+								config.handler.call(config.scope, "ok", target);
+							} else {
+								config.handler("ok", target);
+							}
 						}
 
 						__this.modal.close();
@@ -255,7 +271,11 @@ BootstrapPlus.Modal.Error = function(config) {
 					type: "primary", 
 					handler: function(target) {
 						if (config.handler) {
-							config.handler.call(__this, "ok", target);
+							if (config.hasOwnProperty("scope")) {
+								config.handler.call(config.scope, "ok", target);
+							} else {
+								config.handler("ok", target);
+							}
 						}
 
 						__this.modal.close();
