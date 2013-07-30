@@ -231,7 +231,7 @@ BootstrapPlus.Modal.OK = function(config) {
 	this.modal = new BootstrapPlus.Modal(__config);
 };
 
-BootstrapPlus.Modal.OK = function(config) {
+BootstrapPlus.Modal.OkCancel = function(config) {
 	var
 		__this = this,
 		__config = $.extend({
@@ -251,12 +251,24 @@ BootstrapPlus.Modal.OK = function(config) {
 
 						__this.modal.close();
 					}
+				},
+				"Cancel": {
+					handler: function(target) {
+						if (config.handler) {
+							if (config.hasOwnProperty("scope")) {
+								config.handler.call(config.scope, "cancel", target);
+							} else {
+								config.handler("cancel", target);
+							}
+						}
+
+						__this.modal.close();
+					}
 				}
 			},
 			show: config.show || true
 		}, config);
 
-	__config.body = "<img src=\"" + BootstrapPlus.dialogInformationImage + "\" style=\"float: left; margin-right: 10px\" />" + __config.body;
 	this.modal = new BootstrapPlus.Modal(__config);
 };
 
